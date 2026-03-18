@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, MapPin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 
-/* ─────────────────────────────────────────────────────────────────────
- * ✅ FORMSPREE ENDPOINT
- * Your form is now powered by Formspree. No API keys needed in code!
- * ───────────────────────────────────────────────────────────────────── */
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvrnynk";
 
 const CONTACTS = [
@@ -126,7 +122,7 @@ const Contact = () => {
                     <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem' }}>Get In Touch</h2>
                     <div style={{ width: 60, height: 3, background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)', margin: '0 auto 1rem', borderRadius: 2 }} />
                     <p style={{ color: '#94a3b8', maxWidth: 500, margin: '0 auto', lineHeight: 1.8 }}>
-                        Whether you have an opportunity, project idea, or just want to say hi — my inbox is open.
+                        Whether you have an opportunity, project idea, or just want to say hi, my inbox is open.
                     </p>
                 </div>
 
@@ -228,10 +224,6 @@ const Contact = () => {
                                 : <><Send size={18} /> Send Message</>
                             }
                         </motion.button>
-
-                        <p style={{ fontSize: '0.7rem', color: '#334155', fontFamily: 'var(--font-mono)', textAlign: 'center' }}>
-                            Powered by Formspree · No backend required
-                        </p>
                     </motion.form>
                 </div>
             </div>
