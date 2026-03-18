@@ -11,7 +11,7 @@ const Navbar = () => {
         { name: 'About', href: '#about', id: 'about' },
         { name: 'Skills', href: '#skills', id: 'skills' },
         { name: 'Projects', href: '#projects', id: 'projects' },
-        { name: 'Timeline', href: '#experience', id: 'experience' },
+        { name: 'Academics', href: '#experience', id: 'experience' },
         { name: 'Certificates', href: '#certificates', id: 'certificates' },
         { name: 'Achievements', href: '#achievements', id: 'achievements' },
         { name: 'Contact', href: '#contact', id: 'contact' },
@@ -53,7 +53,7 @@ const Navbar = () => {
                         <Code2 size={20} style={{ color: '#fff' }} />
                     </div>
                     <span style={{ fontSize: '1.1rem', fontWeight: 800, fontFamily: 'var(--font-heading)', letterSpacing: '-0.03em' }}>
-                        AYUSH<span style={{ color: '#3b82f6' }}>.</span>DEV
+                        AYUSH PORTFOLIO<span style={{ color: '#3b82f6' }}></span>
                     </span>
                 </a>
 
@@ -68,7 +68,7 @@ const Navbar = () => {
                                 style={{
                                     fontSize: '0.78rem',
                                     fontFamily: 'var(--font-mono)',
-                                    color: isActive ? '#3b82f6' : '#94a3b8',
+                                    color: isActive ? '#3b82f6' : '#ffffff',
                                     transition: 'color 0.2s',
                                     position: 'relative',
                                     paddingBottom: 4,
