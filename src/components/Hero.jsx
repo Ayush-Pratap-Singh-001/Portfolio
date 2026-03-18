@@ -2,17 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail, Download, ChevronRight, ChevronDown, Code2, Cpu, Star } from 'lucide-react';
 
-const ROLES = ['Backend Developer', 'Software Engineer', 'API Architect', 'Java Developer'];
+const ROLES = ['Backend Developer', 'Software Engineer', 'Java Developer', 'UI Designer'];
 
 const TERMINAL_LINES = [
   { type: 'cmd', text: 'whoami' },
-  { type: 'out', text: 'Ayush — Backend Engineer specializing in Java, Spring Boot & cloud-native systems.' },
+  { type: 'out', text: 'Ayush — Backend Developer & Machine Learning Enthusiast specializing in Java, Spring Boot, and data-driven systems.' },
   { type: 'cmd', text: 'ls projects/' },
-  { type: 'out', text: 'LibrarySystem/  MoviesApp/  LeetcodeSolver/  FileSharingApp/' },
+  { type: 'out', text: 'LibraryManagementSystem/ LeadGenChatBot/ MemoryManagementVisualiser/' },
   { type: 'cmd', text: 'cat skills.json' },
-  { type: 'tag', items: ['Java', 'Spring Boot', 'FastAPI', 'PostgreSQL', 'Docker', 'AWS'] },
+  { type: 'tag', items: ['Java', 'Spring Boot', 'Python', 'MySQL', 'Scikit-learn', 'Git'] },
   { type: 'cmd', text: 'git log --oneline -1' },
-  { type: 'out', text: 'a3c9f12 feat: building scalable systems, one commit at a time 🚀' },
+  { type: 'out', text: 'a3c9f12 feat: building scalable systems, one commit at a time' },
 ];
 
 const TerminalLine = ({ line, visible }) => {
@@ -97,7 +97,7 @@ const Hero = () => {
             </h2>
 
             <p style={{ color: '#94a3b8', fontSize: '1.05rem', maxWidth: 480, lineHeight: 1.8, marginBottom: '2rem' }}>
-              Crafting <strong style={{ color: '#f8fafc' }}>high-performance REST APIs</strong> and scalable backend systems with Java & Spring Boot. Passionate about system design, cloud architecture and building elegant solutions.
+              Designing <strong style={{ color: '#f8fafc' }}>scalable backend systems and intelligent solutions</strong> using Java, Spring Boot, and machine learning. Passionate about system design, cloud architecture, and data-driven innovation.
             </p>
 
             {/* Stats Row */}
@@ -126,7 +126,7 @@ const Hero = () => {
                 View Projects <ChevronRight size={18} />
               </motion.a>
               <motion.a
-                href="src\components\Resume.pdf"
+                href="https://drive.google.com/file/d/1TLd8xwvrob6ehsvy9SxhMc2-BEwWexWm/view?usp=sharing"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', border: '1px solid #3b82f6', color: '#3b82f6', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', background: 'transparent' }}
@@ -171,8 +171,8 @@ const Hero = () => {
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ffc629' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840' }} />
-                <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>ayush@dev: ~</span>
-                <span style={{ marginLeft: 'auto', fontSize: '0.65rem', color: '#334155', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: 4 }}>zsh</span>
+                <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#aeb2b8', fontFamily: 'var(--font-mono)' }}>ayush@dev: ~</span>
+                <span style={{ marginLeft: 'auto', fontSize: '0.65rem', color: '#aeb2b8', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: 4 }}>shell</span>
               </div>
 
               {/* Terminal Body */}
