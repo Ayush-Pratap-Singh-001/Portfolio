@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail, Download, ChevronRight, ChevronDown, Code2, Cpu, Star } from 'lucide-react';
 
@@ -20,13 +20,13 @@ const TerminalLine = ({ line, visible }) => {
   if (line.type === 'cmd') return (
     <p className="flex gap-2 items-center">
       <span style={{ color: '#10b981' }}>❯</span>
-      <span style={{ color: '#f8fafc' }}>{line.text}</span>
+      <span style={{ color: '#e2e8f0' }}>{line.text}</span>
     </p>
   );
   if (line.type === 'tag') return (
     <div className="flex flex-wrap gap-2 pl-4">
       {line.items.map(t => (
-        <span key={t} style={{ background: 'rgba(59,130,246,0.15)', color: '#3b82f6', padding: '2px 8px', borderRadius: 4, fontSize: '0.75rem', fontFamily: 'monospace' }}>{t}</span>
+        <span key={t} style={{ background: 'rgba(59,130,246,0.2)', color: '#93c5fd', padding: '2px 8px', borderRadius: 4, fontSize: '0.75rem', fontFamily: 'monospace' }}>{t}</span>
       ))}
     </div>
   );
@@ -39,7 +39,6 @@ const Hero = () => {
   const [deleting, setDeleting] = useState(false);
   const [terminalStep, setTerminalStep] = useState(0);
 
-  // Role typing effect
   useEffect(() => {
     const full = ROLES[roleIndex];
     if (!deleting && displayRole.length < full.length) {
@@ -57,7 +56,6 @@ const Hero = () => {
     }
   }, [displayRole, deleting, roleIndex]);
 
-  // Terminal progressive reveal
   useEffect(() => {
     if (terminalStep < TERMINAL_LINES.length) {
       const t = setTimeout(() => setTerminalStep(s => s + 1), 600);
@@ -81,23 +79,23 @@ const Hero = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              style={{ color: '#3b82f6', fontFamily: 'var(--font-mono)', fontSize: '1rem', marginBottom: '1rem', display: 'block', letterSpacing: '0.05em' }}
+              style={{ color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)', fontSize: '1rem', marginBottom: '1rem', display: 'block', letterSpacing: '0.05em' }}
             >
               &gt; Hello, I'm
             </motion.span>
 
-            <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 800, lineHeight: 1.05, marginBottom: '1rem', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}>
               Ayush
             </h1>
             <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', fontWeight: 700, marginBottom: '1.5rem', fontFamily: 'var(--font-heading)', minHeight: '3.5rem' }}>
               <span style={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 {displayRole}
               </span>
-              <span style={{ color: '#3b82f6', animation: 'blink 1s step-end infinite' }}>|</span>
+              <span style={{ color: 'var(--accent-blue)', animation: 'blink 1s step-end infinite' }}>|</span>
             </h2>
 
-            <p style={{ color: '#94a3b8', fontSize: '1.05rem', maxWidth: 480, lineHeight: 1.8, marginBottom: '2rem' }}>
-              Designing <strong style={{ color: '#f8fafc' }}>scalable backend systems and intelligent solutions</strong> using Java, Spring Boot, and machine learning. Passionate about system design, cloud architecture, and data-driven innovation.
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: 480, lineHeight: 1.8, marginBottom: '2rem' }}>
+              Designing <strong style={{ color: 'var(--text-primary)' }}>scalable backend systems and intelligent solutions</strong> using Java, Spring Boot, and machine learning. Passionate about system design, cloud architecture, and data-driven innovation.
             </p>
 
             {/* Stats Row */}
@@ -106,11 +104,11 @@ const Hero = () => {
                 <motion.div
                   key={label}
                   whileHover={{ scale: 1.05 }}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '0.75rem 1.25rem', minWidth: 80 }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--surface-muted)', border: '1px solid var(--surface-muted-border)', borderRadius: 12, padding: '0.75rem 1.25rem', minWidth: 80 }}
                 >
-                  <Icon size={18} style={{ color: '#3b82f6', marginBottom: 4 }} />
-                  <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f8fafc' }}>{value}</span>
-                  <span style={{ fontSize: '0.7rem', color: '#64748b', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+                  <Icon size={18} style={{ color: 'var(--accent-blue)', marginBottom: 4 }} />
+                  <span style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text-primary)' }}>{value}</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
                 </motion.div>
               ))}
             </div>
@@ -121,7 +119,7 @@ const Hero = () => {
                 href="#projects"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', background: '#3b82f6', color: '#fff', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', boxShadow: '0 0 24px rgba(59,130,246,0.3)' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', background: 'var(--accent-blue)', color: '#fff', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', boxShadow: '0 0 24px rgba(59,130,246,0.3)' }}
               >
                 View Projects <ChevronRight size={18} />
               </motion.a>
@@ -129,7 +127,7 @@ const Hero = () => {
                 href="https://drive.google.com/file/d/1TLd8xwvrob6ehsvy9SxhMc2-BEwWexWm/view?usp=sharing"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', border: '1px solid #3b82f6', color: '#3b82f6', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', background: 'transparent' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', border: '1.5px solid var(--accent-blue)', color: 'var(--accent-blue)', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', background: 'transparent' }}
               >
                 <Download size={18} /> Download CV
               </motion.a>
@@ -143,8 +141,8 @@ const Hero = () => {
                 { icon: Mail, href: 'mailto:singhpratapayush001@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  whileHover={{ y: -3, color: '#3b82f6' }}
-                  style={{ color: '#64748b', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, transition: 'color 0.2s' }}
+                  whileHover={{ y: -3, color: 'var(--accent-blue)' }}
+                  style={{ color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, transition: 'color 0.2s' }}
                   aria-label={label}
                 >
                   <Icon size={22} />
@@ -154,7 +152,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Side — Terminal */}
+          {/* Right Side — Terminal (always dark for readability) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -165,18 +163,19 @@ const Hero = () => {
             {/* Glow */}
             <div style={{ position: 'absolute', inset: -20, background: 'linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15))', borderRadius: 24, filter: 'blur(30px)', zIndex: 0 }} />
 
-            <div style={{ position: 'relative', zIndex: 1, background: 'rgba(15,23,42,0.85)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 25px 60px rgba(0,0,0,0.4)' }}>
+            {/* Terminal is intentionally always dark — it's a code window */}
+            <div style={{ position: 'relative', zIndex: 1, background: '#0f172a', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 25px 60px rgba(0,0,0,0.4)' }}>
               {/* Tab Bar */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.2)' }}>
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ffc629' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840' }} />
                 <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#aeb2b8', fontFamily: 'var(--font-mono)' }}>ayush@dev: ~</span>
-                <span style={{ marginLeft: 'auto', fontSize: '0.65rem', color: '#aeb2b8', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: 4 }}>shell</span>
+                <span style={{ marginLeft: 'auto', fontSize: '0.65rem', color: '#aeb2b8', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.07)', padding: '2px 8px', borderRadius: 4 }}>shell</span>
               </div>
 
               {/* Terminal Body */}
-              <div style={{ padding: '1.25rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.8, minHeight: 280, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ padding: '1.25rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', lineHeight: 1.8, minHeight: 280, display: 'flex', flexDirection: 'column', gap: '0.5rem', background: '#0f172a' }}>
                 {TERMINAL_LINES.map((line, idx) => (
                   <AnimatePresence key={idx}>
                     {terminalStep > idx && (
@@ -203,7 +202,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '3rem', color: '#334155', gap: 4 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '3rem', color: 'var(--text-secondary)', gap: 4 }}
         >
           <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Scroll</span>
           <ChevronDown size={20} />

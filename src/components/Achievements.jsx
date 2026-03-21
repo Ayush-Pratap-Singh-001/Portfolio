@@ -6,45 +6,43 @@ const PLATFORMS = [
     {
         id: 'leetcode',
         name: 'LeetCode',
-        handle: '@ayush_dev',
-        link: 'https://leetcode.com',
+        handle: 'jarvis_001',
+        link: 'https://leetcode.com/u/jarvis__001/',
         color: '#f59e0b',
         bgColor: '#f59e0b12',
         icon: '🟡',
-        rank: 'Knight',
+        rank: '200 problem solved',
         stats: [
-            { label: 'Problems Solved', value: '450+', icon: <Code size={16} /> },
-            { label: 'Contest Rating', value: '1,820', icon: <TrendingUp size={16} /> },
-            { label: 'Global Rank', value: 'Top 8%', icon: <Target size={16} /> },
-            { label: 'Badges Earned', value: '12', icon: <Trophy size={16} /> },
+            { label: 'Problems Solved', value: '200+', icon: <Code size={16} /> },
+            { label: 'Contest Rating', value: '1539', icon: <TrendingUp size={16} /> },
+            { label: 'Global Rank', value: 'Top 35.87%', icon: <Target size={16} /> },
+            { label: 'Badges Earned', value: '2', icon: <Trophy size={16} /> },
         ],
         highlights: [
-            '450+ problems across Easy, Medium & Hard',
-            'Consistent daily streak of 90+ days',
-            'Topped weekly contest (Rank 142 globally)',
-            'Solved 3 Hard DP problems in one contest',
+            '200+ problems across Easy, Medium & Hard',
+            'Consistent daily streak of 30+ days',
         ],
         tags: ['Dynamic Programming', 'Graphs', 'Trees', 'Binary Search'],
     },
     {
         id: 'gfg',
         name: 'GeeksforGeeks',
-        handle: '@ayush_gfg',
-        link: 'https://geeksforgeeks.org',
+        handle: 'ayush_pratap_singh_001',
+        link: 'https://www.geeksforgeeks.org/profile/ayush_pratap_singh_001',
         color: '#10b981',
         bgColor: '#10b98112',
         icon: '🟢',
-        rank: '5 Star Coder',
+        rank: '100+ problem solved',
         stats: [
-            { label: 'Problems Solved', value: '600+', icon: <Code size={16} /> },
-            { label: 'GFG Score', value: '2,350', icon: <TrendingUp size={16} /> },
-            { label: 'Institute Rank', value: '#3', icon: <Target size={16} /> },
-            { label: 'Streak', value: '120 days', icon: <Zap size={16} /> },
+            { label: 'Problems Solved', value: '100+', icon: <Code size={16} /> },
+            { label: 'GFG Score', value: '213', icon: <TrendingUp size={16} /> },
+            { label: 'Institute Rank', value: '7000', icon: <Target size={16} /> },
+            { label: 'Streak', value: '5 days', icon: <Zap size={16} /> },
         ],
         highlights: [
-            '600+ Problems solved across all difficulty levels',
-            'Ranked #3 in institution-wide leaderboard',
-            '120-day consistent problem-solving streak',
+            '100+ Problems solved across all difficulty levels',
+            'Ranked 7000 in institution-wide leaderboard',
+            '5-day consistent problem-solving streak',
             'Contributor to GFG practice articles',
         ],
         tags: ['Arrays', 'Strings', 'Recursion', 'Sorting'],
@@ -52,23 +50,22 @@ const PLATFORMS = [
     {
         id: 'hackerrank',
         name: 'HackerRank',
-        handle: '@ayush_hr',
-        link: 'https://hackerrank.com',
+        handle: 'ayush_pratap',
+        link: 'https://www.hackerrank.com/profile/ayush_pratap',
         color: '#22c55e',
         bgColor: '#22c55e12',
         icon: '🌿',
         rank: '6 Star — Gold',
         stats: [
-            { label: 'Stars Earned', value: '6 ⭐', icon: <Star size={16} /> },
-            { label: 'Badges', value: '18', icon: <Trophy size={16} /> },
+            { label: 'Stars Earned', value: '5 ⭐', icon: <Star size={16} /> },
+            { label: 'Badges', value: '4', icon: <Trophy size={16} /> },
             { label: 'Rank', value: 'Gold', icon: <Target size={16} /> },
-            { label: 'Certificates', value: '4', icon: <Users size={16} /> },
+            { label: 'Certificates', value: '2', icon: <Users size={16} /> },
         ],
         highlights: [
-            '6-Star Gold badge in Problem Solving',
-            'Gold-level Java & Python domain badges',
-            'Earned 4 HackerRank skill certifications',
-            'Ranked in top 5% on SQL challenge track',
+            '5-Star Gold badge in Problem Solving',
+            'Gold-level Java domain badges',
+            'Earned 2 HackerRank skill certifications',
         ],
         tags: ['Problem Solving', 'Java', 'Python', 'SQL'],
     },
@@ -123,17 +120,17 @@ const PLATFORMS = [
 /* ── Animated counter ───────────────────────────────────────────────── */
 const StatBadge = ({ label, value, icon, color }) => (
     <div style={{
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: 'var(--surface-muted)',
+        border: '1px solid var(--card-border)',
         borderRadius: 12,
         padding: '0.85rem 1rem',
         display: 'flex',
         flexDirection: 'column',
         gap: '0.3rem',
     }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color, opacity: 0.8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color, opacity: 0.9 }}>
             {icon}
-            <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{label}</span>
+            <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{label}</span>
         </div>
         <div style={{ fontSize: '1.35rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color }}>{value}</div>
     </div>
@@ -152,12 +149,12 @@ const PlatformCard = ({ platform, index }) => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{
-                background: hovered ? platform.bgColor : 'rgba(15,23,42,0.8)',
-                border: `1px solid ${hovered ? platform.color + '40' : 'rgba(255,255,255,0.07)'}`,
+                background: hovered ? platform.bgColor : 'var(--card-bg)',
+                border: `1px solid ${hovered ? platform.color + '40' : 'var(--card-border)'}`,
                 borderRadius: 20,
                 overflow: 'hidden',
                 transition: 'all 0.3s ease',
-                boxShadow: hovered ? `0 20px 60px ${platform.color}15` : 'none',
+                boxShadow: hovered ? `0 20px 60px ${platform.color}20` : '0 2px 12px rgba(0,0,0,0.06)',
             }}
         >
             {/* Top bar */}
@@ -177,8 +174,8 @@ const PlatformCard = ({ platform, index }) => {
                             {platform.icon}
                         </div>
                         <div>
-                            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '0.15rem' }}>{platform.name}</h3>
-                            <p style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#64748b' }}>{platform.handle}</p>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '0.15rem', color: 'var(--text-primary)' }}>{platform.name}</h3>
+                            <p style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>{platform.handle}</p>
                         </div>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.4rem' }}>
@@ -187,7 +184,7 @@ const PlatformCard = ({ platform, index }) => {
                         </span>
                         <a href={platform.link} target="_blank" rel="noopener noreferrer"
                             onClick={e => e.stopPropagation()}
-                            style={{ color: '#64748b', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.72rem', fontFamily: 'var(--font-mono)' }}>
+                            style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.72rem', fontFamily: 'var(--font-mono)' }}>
                             Visit <ExternalLink size={11} />
                         </a>
                     </div>
@@ -207,7 +204,7 @@ const PlatformCard = ({ platform, index }) => {
                     </h4>
                     <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
                         {platform.highlights.map(h => (
-                            <li key={h} style={{ display: 'flex', gap: 8, color: '#94a3b8', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                            <li key={h} style={{ display: 'flex', gap: 8, color: 'var(--text-secondary)', fontSize: '0.82rem', lineHeight: 1.5 }}>
                                 <span style={{ color: platform.color, flexShrink: 0, fontWeight: 700, marginTop: 1 }}>›</span> {h}
                             </li>
                         ))}
@@ -217,7 +214,7 @@ const PlatformCard = ({ platform, index }) => {
                 {/* Tags */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
                     {platform.tags.map(tag => (
-                        <span key={tag} style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.06)', color: '#94a3b8', padding: '3px 9px', borderRadius: 5, letterSpacing: '0.04em' }}>
+                        <span key={tag} style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', background: 'var(--surface-muted)', border: '1px solid var(--card-border)', color: 'var(--text-secondary)', padding: '3px 9px', borderRadius: 5, letterSpacing: '0.04em' }}>
                             {tag}
                         </span>
                     ))}
@@ -246,8 +243,8 @@ const Achievements = () => (
                     style={{ color: '#f59e0b', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.5rem' }}>
                     06. Competitive Programming
                 </motion.span>
-                <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem' }}>Achievements</h2>
-                <p style={{ color: '#94a3b8', maxWidth: 560, lineHeight: 1.75, fontSize: '0.95rem' }}>
+                <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-primary)' }}>Achievements</h2>
+                <p style={{ color: 'var(--text-secondary)', maxWidth: 560, lineHeight: 1.75, fontSize: '0.95rem' }}>
                     Consistently ranked competitive programmer across major platforms — sharpening algorithmic thinking and problem-solving skills.
                 </p>
             </div>
@@ -262,10 +259,11 @@ const Achievements = () => (
                     gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
                     gap: '1rem',
                     marginBottom: '3rem',
-                    background: 'rgba(15,23,42,0.6)',
-                    border: '1px solid rgba(255,255,255,0.07)',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
                     borderRadius: 16,
                     padding: '1.5rem',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                 }}
             >
                 {SUMMARY_STATS.map(s => (
@@ -275,7 +273,7 @@ const Achievements = () => (
                         </div>
                         <div>
                             <div style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: s.color }}>{s.value}</div>
-                            <div style={{ fontSize: '0.72rem', color: '#64748b', fontFamily: 'var(--font-mono)' }}>{s.label}</div>
+                            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>{s.label}</div>
                         </div>
                     </div>
                 ))}

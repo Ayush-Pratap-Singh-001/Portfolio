@@ -5,10 +5,10 @@ import { Mail, Github, Linkedin, MapPin, Send, CheckCircle, AlertCircle, Loader 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvrnynk";
 
 const CONTACTS = [
-    { icon: Mail,    label: 'Email',    value: 'singhpratapayush001@gmail.com',          href: 'mailto:singhpratapayush001@gmail.com',       color: '#3b82f6' },
-    { icon: Github,  label: 'GitHub',   value: 'Ayush-Pratap-Singh-001',                  href: 'https://github.com/Ayush-Pratap-Singh-001',  color: '#8b5cf6' },
-    { icon: Linkedin,label: 'LinkedIn', value: 'ayushpsingh001',                          href: 'https://www.linkedin.com/in/ayushpsingh001', color: '#0ea5e9' },
-    { icon: MapPin,  label: 'Location', value: 'Gorakhpur, Uttar Pradesh, India',          href: null,                                         color: '#10b981' },
+    { icon: Mail,     label: 'Email',    value: 'singhpratapayush001@gmail.com',         href: 'mailto:singhpratapayush001@gmail.com',       color: '#3b82f6' },
+    { icon: Github,   label: 'GitHub',   value: 'Ayush-Pratap-Singh-001',                href: 'https://github.com/Ayush-Pratap-Singh-001',  color: '#8b5cf6' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'ayushpsingh001',                        href: 'https://www.linkedin.com/in/ayushpsingh001', color: '#0ea5e9' },
+    { icon: MapPin,   label: 'Location', value: 'Gorakhpur, Uttar Pradesh, India',        href: null,                                         color: '#10b981' },
 ];
 
 /* ── Field component ── */
@@ -16,9 +16,11 @@ const Field = ({ label, name, value, onChange, error, placeholder, type = 'text'
     const [focused, setFocused] = useState(false);
     const inputStyle = {
         width: '100%', padding: '0.85rem 1rem',
-        background: 'rgba(15,23,42,0.8)',
-        border: `1px solid ${error ? 'rgba(239,68,68,0.6)' : focused ? 'rgba(59,130,246,0.6)' : 'rgba(255,255,255,0.1)'}`,
-        borderRadius: 10, color: '#f8fafc', fontSize: '0.9rem',
+        background: 'var(--surface-muted)',
+        border: `1px solid ${error ? 'rgba(239,68,68,0.6)' : focused ? 'rgba(59,130,246,0.6)' : 'var(--card-border)'}`,
+        borderRadius: 10,
+        color: 'var(--text-primary)',
+        fontSize: '0.9rem',
         outline: 'none',
         transition: 'border-color 0.2s, box-shadow 0.2s',
         boxShadow: focused && !error ? '0 0 0 3px rgba(59,130,246,0.1)' : 'none',
@@ -33,7 +35,7 @@ const Field = ({ label, name, value, onChange, error, placeholder, type = 'text'
     };
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ fontSize: '0.72rem', color: '#94a3b8', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <label style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 {label}
             </label>
             {textarea
@@ -53,7 +55,7 @@ const Field = ({ label, name, value, onChange, error, placeholder, type = 'text'
 const Contact = () => {
     const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' });
     const [errors, setErrors] = useState({});
-    const [status, setStatus] = useState('idle'); // idle | sending | success | error
+    const [status, setStatus] = useState('idle');
 
     const validate = () => {
         const e = {};
@@ -76,14 +78,11 @@ const Contact = () => {
         if (Object.keys(errs).length > 0) { setErrors(errs); return; }
 
         setStatus('sending');
-        
+
         try {
             const response = await fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                 body: JSON.stringify(form)
             });
 
@@ -116,12 +115,12 @@ const Contact = () => {
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
                     <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                        style={{ color: '#3b82f6', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.75rem' }}>
+                        style={{ color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.75rem' }}>
                         07. What's Next?
                     </motion.span>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem' }}>Get In Touch</h2>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-primary)' }}>Get In Touch</h2>
                     <div style={{ width: 60, height: 3, background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)', margin: '0 auto 1rem', borderRadius: 2 }} />
-                    <p style={{ color: '#94a3b8', maxWidth: 500, margin: '0 auto', lineHeight: 1.8 }}>
+                    <p style={{ color: 'var(--text-secondary)', maxWidth: 500, margin: '0 auto', lineHeight: 1.8 }}>
                         Whether you have an opportunity, project idea, or just want to say hi, my inbox is open.
                     </p>
                 </div>
@@ -131,18 +130,18 @@ const Contact = () => {
                     {/* Left: Contact Info */}
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
                         style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>Contact Information</h3>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Contact Information</h3>
                         {CONTACTS.map(({ icon: Icon, label, value, href, color }) => (
                             <motion.div key={label} whileHover={{ x: 4 }}
-                                style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, transition: 'border-color 0.2s' }}>
+                                style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                                 <div style={{ width: 40, height: 40, borderRadius: 10, background: `${color}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                     <Icon size={20} style={{ color }} />
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: '0.68rem', color: '#64748b', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 2 }}>{label}</div>
+                                    <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 2 }}>{label}</div>
                                     {href
-                                        ? <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.88rem', color: '#f8fafc', fontWeight: 500 }}>{value}</a>
-                                        : <div style={{ fontSize: '0.88rem', color: '#f8fafc', fontWeight: 500 }}>{value}</div>
+                                        ? <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.88rem', color: 'var(--text-primary)', fontWeight: 500 }}>{value}</a>
+                                        : <div style={{ fontSize: '0.88rem', color: 'var(--text-primary)', fontWeight: 500 }}>{value}</div>
                                     }
                                 </div>
                             </motion.div>
@@ -160,7 +159,7 @@ const Contact = () => {
                                 background: 'rgba(59,130,246,0.1)',
                                 border: '1px solid rgba(59,130,246,0.3)',
                                 borderRadius: 12,
-                                color: '#3b82f6', fontWeight: 600, fontSize: '0.88rem',
+                                color: 'var(--accent-blue)', fontWeight: 600, fontSize: '0.88rem',
                                 transition: 'all 0.2s',
                             }}
                         >
@@ -183,14 +182,11 @@ const Contact = () => {
                         <Field label="Subject"  name="subject"    value={form.subject} onChange={handleChange} error={errors.subject} placeholder="Project Inquiry" />
                         <Field label="Message"  name="message"    value={form.message} onChange={handleChange} error={errors.message} placeholder="Tell me about your project or opportunity..." textarea rows={5} />
 
-                        {/* Status banners */}
                         {status === 'success' && (
                             <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
-                                style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#10b981', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', borderRadius: 10, padding: '0.85rem 1rem', fontSize: '0.875rem' }}>
+                                style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#047857', background: 'rgba(4,120,87,0.1)', border: '1px solid rgba(4,120,87,0.3)', borderRadius: 10, padding: '0.85rem 1rem', fontSize: '0.875rem' }}>
                                 <CheckCircle size={18} />
-                                <div>
-                                    <strong>Message sent!</strong> I'll get back to you within 24 hours.
-                                </div>
+                                <div><strong>Message sent!</strong> I'll get back to you within 24 hours.</div>
                             </motion.div>
                         )}
 
@@ -198,9 +194,7 @@ const Contact = () => {
                             <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
                                 style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#ef4444', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: 10, padding: '0.85rem 1rem', fontSize: '0.875rem' }}>
                                 <AlertCircle size={18} />
-                                <div>
-                                    Failed to send. Please try <a href="mailto:singhpratapayush001@gmail.com" style={{ color: '#ef4444', textDecoration: 'underline' }}>emailing me directly</a>.
-                                </div>
+                                <div>Failed to send. Please try <a href="mailto:singhpratapayush001@gmail.com" style={{ color: '#ef4444', textDecoration: 'underline' }}>emailing me directly</a>.</div>
                             </motion.div>
                         )}
 
@@ -212,7 +206,7 @@ const Contact = () => {
                             style={{
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
                                 padding: '1rem', borderRadius: 12, border: 'none',
-                                background: isSending ? 'rgba(59,130,246,0.5)' : '#3b82f6',
+                                background: isSending ? 'rgba(59,130,246,0.5)' : 'var(--accent-blue)',
                                 color: '#fff', fontSize: '1rem', fontWeight: 600,
                                 cursor: isSending ? 'not-allowed' : 'pointer',
                                 boxShadow: isSending ? 'none' : '0 0 24px rgba(59,130,246,0.35)',
@@ -246,7 +240,7 @@ const Contact = () => {
 
 /* ── Footer ── */
 const Footer = () => (
-    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '2.5rem 1.5rem', textAlign: 'center', background: 'rgba(2,6,23,0.8)' }}>
+    <footer style={{ borderTop: '1px solid var(--card-border)', padding: '2.5rem 1.5rem', textAlign: 'center', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.25rem' }}>
                 {[
@@ -255,14 +249,14 @@ const Footer = () => (
                     { icon: Mail,     href: 'mailto:singhpratapayush001@gmail.com' },
                 ].map(({ icon: Icon, href }, i) => (
                     <motion.a key={i} href={href} target="_blank" rel="noopener noreferrer"
-                        whileHover={{ y: -3, color: '#3b82f6' }}
-                        style={{ color: '#64748b', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}>
+                        whileHover={{ y: -3, color: 'var(--accent-blue)' }}
+                        style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', transition: 'color 0.2s' }}>
                         <Icon size={22} />
                     </motion.a>
                 ))}
             </div>
-            <p style={{ color: '#334155', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>
-                Designed & Built by <span style={{ color: '#3b82f6' }}>Ayush</span> © {new Date().getFullYear()}
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>
+                Designed & Built by <span style={{ color: 'var(--accent-blue)' }}>Ayush</span> © {new Date().getFullYear()}
             </p>
         </div>
     </footer>

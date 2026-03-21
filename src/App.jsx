@@ -9,28 +9,31 @@ import Certificates from './components/Certificates';
 import Achievements from './components/Achievements';
 import { Contact, Footer } from './components/Contact';
 import CustomCursor from './components/CustomCursor';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <div className="relative overflow-x-hidden">
-      <CustomCursor />
+    <ThemeProvider>
+      <div className="relative overflow-x-hidden">
+        <CustomCursor />
 
-      {/* Background Grid Pattern */}
-      <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px]"></div>
+        {/* Background Grid Pattern */}
+        <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px]"></div>
 
-      <Navbar />
-      <main className="w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Timeline />
-        <Certificates />
-        <Achievements />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+        <Navbar />
+        <main className="w-full">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Timeline />
+          <Certificates />
+          <Achievements />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

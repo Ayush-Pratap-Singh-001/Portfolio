@@ -46,20 +46,21 @@ const SKILL_GROUPS = [
 
 const SkillBadge = ({ name, logo, color }) => (
     <motion.div
-        whileHover={{ y: -6, boxShadow: `0 10px 30px ${color}25` }}
+        whileHover={{ y: -6, boxShadow: `0 10px 30px ${color}30` }}
         style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: 10,
             padding: '1.25rem 1rem',
-            background: 'rgba(15,23,42,0.8)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--card-border)',
             borderRadius: 14,
             transition: 'all 0.25s ease',
             cursor: 'default',
             width: 110,
             flexShrink: 0,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
         }}
     >
         <img
@@ -68,7 +69,7 @@ const SkillBadge = ({ name, logo, color }) => (
             style={{ width: 40, height: 40, objectFit: 'contain' }}
             onError={e => { e.target.style.display = 'none'; }}
         />
-        <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#94a3b8', textAlign: 'center' }}>{name}</span>
+        <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', textAlign: 'center' }}>{name}</span>
     </motion.div>
 );
 
@@ -79,16 +80,16 @@ const Skills = () => {
     const displayed = active === 'All' ? SKILL_GROUPS : SKILL_GROUPS.filter(g => g.category === active);
 
     return (
-        <section id="skills" style={{ padding: '100px 1.5rem', background: 'rgba(15,23,42,0.3)' }}>
+        <section id="skills" style={{ padding: '100px 1.5rem', background: 'var(--bg-secondary)' }}>
             <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                     <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                        style={{ color: '#3b82f6', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.75rem' }}>
+                        style={{ color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '0.75rem' }}>
                         02. Technical Arsenal
                     </motion.span>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem' }}>Skills & Technologies</h2>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-primary)' }}>Skills & Technologies</h2>
                     <div style={{ width: 60, height: 3, background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)', margin: '0 auto 2rem', borderRadius: 2 }} />
 
                     {/* Filter tabs */}
@@ -100,13 +101,13 @@ const Skills = () => {
                                 style={{
                                     padding: '0.45rem 1.1rem',
                                     borderRadius: 999,
-                                    border: 'none',
+                                    border: '1px solid ' + (active === cat ? 'transparent' : 'var(--card-border)'),
                                     fontSize: '0.78rem',
                                     fontFamily: 'var(--font-mono)',
                                     cursor: 'pointer',
                                     transition: 'all 0.2s',
-                                    background: active === cat ? '#3b82f6' : 'rgba(255,255,255,0.07)',
-                                    color: active === cat ? '#fff' : '#94a3b8',
+                                    background: active === cat ? 'var(--accent-blue)' : 'var(--card-bg)',
+                                    color: active === cat ? '#fff' : 'var(--text-secondary)',
                                     boxShadow: active === cat ? '0 0 16px rgba(59,130,246,0.35)' : 'none',
                                 }}
                             >

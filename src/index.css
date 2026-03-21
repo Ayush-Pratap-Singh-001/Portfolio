@@ -17,6 +17,66 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ─── Light Mode Overrides ─────────────────────────────── */
+body.light {
+  /* Page backgrounds */
+  --bg-primary: #f1f5ff;
+  --bg-secondary: #e8edf8;
+  --bg-accent: #dce3f3;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+
+  /* Accents - slightly deeper for contrast on light bg */
+  --accent-blue: #1d4ed8;
+  --accent-purple: #6d28d9;
+  --accent-green: #047857;
+
+  /* Glass / card surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(15, 23, 42, 0.1);
+
+  /* Card & surface palette (dark mode equivalent of rgba(15,23,42,…)) */
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(15, 23, 42, 0.09);
+  --card-bg-hover: rgba(255, 255, 255, 1);
+
+  /* Muted surfaces (sections, chips, filter buttons) */
+  --surface-muted: rgba(15, 23, 42, 0.05);
+  --surface-muted-border: rgba(15, 23, 42, 0.08);
+
+  /* Terminal window */
+  --terminal-bg: #1e293b;
+  --terminal-header: #0f172a;
+
+  /* Scrollbar */
+  --scrollbar-thumb: #cbd5e1;
+
+  /* Misc text mutes */
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+}
+
+/* ─── Dark mode explicit additions ────────────────────── */
+body:not(.light) {
+  --card-bg: rgba(15, 23, 42, 0.75);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --card-bg-hover: rgba(15, 23, 42, 0.95);
+  --surface-muted: rgba(255, 255, 255, 0.05);
+  --surface-muted-border: rgba(255, 255, 255, 0.08);
+  --terminal-bg: rgba(15, 23, 42, 0.9);
+  --terminal-header: rgba(255, 255, 255, 0.03);
+  --scrollbar-thumb: #1e293b;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+}
+
+/* Smooth theme transition */
+body, body * {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -101,7 +161,7 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-accent);
+  background: var(--scrollbar-thumb, var(--bg-accent));
   border-radius: 10px;
 }
 
