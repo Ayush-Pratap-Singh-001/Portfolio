@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Server, Globe, GitBranch, Zap, Cloud, Users } from 'lucide-react';
+import profileImg from '../assets/image.png';
 
 const highlights = [
     { icon: Server, title: 'Backend Engineering', desc: 'Designing scalable REST APIs and microservices with Java & Spring Boot.' },
@@ -12,9 +13,9 @@ const highlights = [
 ];
 
 const Stats = [
-    { value: '3+', label: 'Years Coding', color: '#3b82f6' },
-    { value: '15+', label: 'Projects Built', color: '#8b5cf6' },
-    { value: '100+', label: 'LeetCode Problems', color: '#10b981' },
+    { value: '2+', label: 'Years Coding', color: '#3b82f6' },
+    { value: '5+', label: 'Projects Built', color: '#8b5cf6' },
+    { value: '150+', label: 'LeetCode Problems', color: '#10b981' },
     { value: '24/7', label: 'Passion for Code', color: '#f59e0b' },
 ];
 
@@ -57,10 +58,10 @@ const About = () => (
                             border: '4px solid var(--bg-primary)',
                         }}>
                             <img
-                                src="/profile.jpg"
+                                src={profileImg}
                                 alt="Ayush — Backend Engineer"
                                 onError={e => { e.currentTarget.style.display = 'none'; }}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block', position: 'relative', zIndex: 2 }}
                             />
                             <div style={{
                                 position: 'absolute', inset: 0,
@@ -68,10 +69,11 @@ const About = () => (
                                 alignItems: 'center', justifyContent: 'center',
                                 background: 'linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.12))',
                                 gap: 8,
+                                zIndex: 1
                             }}>
                                 <span style={{ fontSize: '5rem', lineHeight: 1 }}>👤</span>
                                 <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', letterSpacing: '0.05em' }}>
-                                    /public/profile.jpg
+                                    /assets/image.png
                                 </span>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ const EVENTS = [
         icon: GraduationCap,
         color: '#8b5cf6',
         tag: 'University',
-        grade: { label: 'CGPA', value: '8.2 / 10' },
+        grade: { label: 'CGPA', value: '8.23 / 10' },
     },
     {
         year: '2020 – 2022',

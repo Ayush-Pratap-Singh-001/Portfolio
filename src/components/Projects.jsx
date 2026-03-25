@@ -19,9 +19,9 @@ const PROJECTS = [
         shortDesc: 'LeadGen ChatBot is a full-stack application combining a FastAPI backend with a React frontend, backed by PostgreSQL. Features real-time search, user reviews, and dynamic filtering by genre and rating.',
         longDesc: 'LeadGen ChatBot is a full-stack application combining a FastAPI backend with a React frontend, backed by PostgreSQL. Features real-time search, user reviews, and dynamic filtering by genre and rating.',
         highlights: ['Async FastAPI with SQLAlchemy ORM', 'Real-time search with filtered endpoints', 'Pagination and sorting for large datasets', 'React SPA with REST API integration'],
-        tech: ['FastAPI', 'React', 'PostgreSQL', 'SQLAlchemy'],
-        category: 'Full Stack',
-        github: 'https://github.com/Ayush-Pratap-Singh-001/Forma-AI-Powered-Lead-Generation-Chatbot',
+        tech: ['FastAPI', 'HTML', 'CSS', 'JavaScript'],
+        category: 'AI',
+        github: 'https://github.com/jarvis-00001/Forma-AI-Powered-Lead-Generation-Chatbot',
         live: '#',
         color: '#8b5cf6',
     },
@@ -30,9 +30,9 @@ const PROJECTS = [
         shortDesc: 'Memory Management Visualiser is a web application that helps users understand memory management concepts in operating systems.',
         longDesc: 'Memory Management Visualiser is a web application that helps users understand memory management concepts in operating systems.',
         highlights: ['Chrome extension with content script injection', 'FastAPI AI proxy with OpenRouter API', 'Secure prompt engineering and error handling', 'DOM manipulation for code editor integration'],
-        tech: ['JavaScript', 'Python', 'FastAPI', 'OpenRouter AI'],
-        category: 'Automation',
-        github: 'https://github.com/Ayush-Pratap-Singh-001/Memory-Management-Visualizer',
+        tech: ['Python', 'Streamlit', 'Algorithms'],
+        category: 'OS',
+        github: 'https://github.com/jarvis-00001/Memory-Management-Visualizer',
         live: '#',
         color: '#10b981',
     },
@@ -60,7 +60,7 @@ const PROJECTS = [
     // },
 ];
 
-const FILTERS = ['All', 'Backend', 'Full Stack', 'AI', 'Web', 'Automation'];
+const FILTERS = ['All', 'Backend', 'OS', 'AI'];
 
 const ProjectModal = ({ project, onClose }) => (
     <motion.div
@@ -111,10 +111,10 @@ const ProjectModal = ({ project, onClose }) => (
                         style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '0.75rem', background: 'var(--surface-muted)', border: '1px solid var(--card-border)', color: 'var(--text-primary)', borderRadius: 10, fontWeight: 600, fontSize: '0.875rem' }}>
                         <Github size={16} /> GitHub
                     </a>
-                    <a href={project.live} target="_blank" rel="noopener noreferrer"
+                    {/* <a href={project.live} target="_blank" rel="noopener noreferrer"
                         style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '0.75rem', background: project.color, color: '#fff', borderRadius: 10, fontWeight: 600, fontSize: '0.875rem' }}>
                         <ExternalLink size={16} /> Live Demo
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </motion.div>
