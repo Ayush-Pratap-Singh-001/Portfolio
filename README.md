@@ -1,16 +1,75 @@
-# React + Vite
+# 🌐 Ayush Pratap Singh — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal developer portfolio repository! This portfolio highlights my technical skills, projects, and experience in backend development and machine learning.
 
-Currently, two official plugins are available:
+## 👨‍💻 About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hi, I'm **Ayush Pratap Singh**, a passionate developer focused on building scalable backend systems and exploring machine learning solutions. I enjoy solving complex problems, designing efficient architectures, and creating clean, maintainable code.
 
-## React Compiler
+**Core Interests:**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Backend Development (Java, Spring Boot)
+* Machine Learning
+* REST API Design
+* Cloud & Scalable Systems
+* Data Structures and Algorithms
 
-## Expanding the ESLint configuration
+## 🚀 Portfolio Highlights
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This portfolio includes:
+
+* A clean and responsive personal website interface
+* Project showcases with descriptions and tech stacks
+* Skills and tools overview
+* Contact section for collaboration opportunities
+* GitHub integration and professional links
+
+## 🛠️ Tech Stack Used
+
+**Frontend:**
+
+* HTML
+* CSS
+* JavaScript
+
+**Backend (Project Experience):**
+
+* Java
+* Spring Boot
+
+**Other Tools & Technologies:**
+
+* Git & GitHub
+* VS Code / IntelliJ IDEA
+
+## 📂 Featured Projects
+
+Some projects highlighted in this portfolio include:
+
+### 📚 Library Management System
+
+A system designed to manage book records efficiently with features for adding, updating, searching, and organizing library data.
+
+### 🤖 Machine Learning Projects
+
+Worked on ML-based implementations involving data processing, model training, and prediction workflows.
+
+## 📸 Portfolio Preview
+
+You can explore the live version here:
+
+👉 https://portfolio-tau-beige-21.vercel.app/
+
+## 📬 Contact Me
+
+Feel free to connect or collaborate!
+
+* GitHub: [https://github.com/Ayush-Pratap-Singh-001](https://github.com/Ayush-Pratap-Singh-001)
+
+## ⭐ Support
+
+If you like this portfolio, consider giving this repository a star. It helps and motivates me to keep building more projects!
+
+---
+
+**Thank you for visiting my portfolio repository!** 🚀
