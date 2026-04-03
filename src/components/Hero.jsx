@@ -124,7 +124,7 @@ const Hero = () => {
                 View Projects <ChevronRight size={18} />
               </motion.a>
               <motion.a
-                href="https://drive.google.com/file/d/1L9rxv8hpwmX_5C8XW-7p_OGXlEve9Ejc/view?usp=sharing"
+                href="https://drive.google.com/file/d/1WrDsH4WJo8NDBm17NLXLfmAe057m7zii/view?usp=sharing"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.85rem 2rem', border: '1.5px solid var(--accent-blue)', color: 'var(--accent-blue)', borderRadius: 10, fontWeight: 600, fontSize: '0.95rem', background: 'transparent' }}
